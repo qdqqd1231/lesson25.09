@@ -24,3 +24,29 @@ namespace lab
         }
     }
 }
+Console.WriteLine("Task 6.3");
+            int countMonths = 12;
+            int countDaysInMonths = 30;
+            double summ ;
+            int[,] temperature = new int[countMonths, countDaysInMonths];
+            var avgTempInMonth = new double[countMonths];
+            for (int i = 0; i < countMonths; i++)
+            {
+                summ = 0;
+                for (int j = 0; j < countDaysInMonths; j++)
+                {
+                    temperature[i, j] = r.Next(-10, 35);
+                    summ += temperature[i, j];
+
+                }
+                avgTempInMonth[i] = summ / countDaysInMonths;
+            }
+            summ = 0;
+            byte temp = 1;
+            foreach (var item in avgTempInMonth)
+            {
+                Console.WriteLine($"Avarage temperature in {(Months)temp} was : {item}");
+                summ += item;
+                temp++;
+            }
+            Console.WriteLine($"Avarage temperature a year : {summ / countMonths}");
